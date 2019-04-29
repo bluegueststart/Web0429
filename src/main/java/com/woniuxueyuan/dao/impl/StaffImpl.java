@@ -13,7 +13,7 @@ import com.woniuxueyuan.domain.Staff;
 import com.woniuxueyuan.utils.JdbcUtils;
 
 public class StaffImpl implements IStaffDao {
-
+  
 	@Override
 	public void save(Staff s) {
 		try {

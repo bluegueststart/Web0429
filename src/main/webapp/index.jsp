@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file="../include/head.jsp"%>
-<title>Insert title here</title>
+
 <link rel="stylesheet" href="css/index.css">
+<title>Insert title here</title>
 </head>
 <body>
 	<div id="container">
@@ -27,7 +28,7 @@
 				<li>员工管理
 					<ul>
 						<li>
-						<a target="mainFrame" href="Staff/save.jsp">添加员工</a>
+						<a target="mainFrame" href="Staff_saveUI">添加员工</a>
 						</li>
 						<li>
 						<a target="mainFrame" href="Staff_find">查看员工</a>

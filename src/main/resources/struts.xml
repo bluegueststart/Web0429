@@ -9,7 +9,7 @@
 	<result  name="find" type="redirectAction">/{1}_find</result>
 	<result name="findUI" type="dispatcher">/{1}/findUI.jsp</result>
 	<result name="updateUI" type="dispatcher">/{1}/updateUI.jsp</result>
-	<result name="updateUI2" type="dispatcher">/Staff/updateUI.jsp</result>
+	<result name="saveUI" type="dispatcher">/{1}/save.jsp</result>
 	</action>
 	
 	</package>
