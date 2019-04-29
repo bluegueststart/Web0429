@@ -1,0 +1,22 @@
+bod {
+	margin: 0;
+}
+
+#container {
+	width: 960px;
+	height: 600px;
+	border: dark solid 1px;
+	margin: auto;
+}
+#left{
+	background-color: #FFDDAA;
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+#right{
+	background-color: #E8CCFF;
+	width: 80%;
+	height: 100%;
+	float: left;
+}
