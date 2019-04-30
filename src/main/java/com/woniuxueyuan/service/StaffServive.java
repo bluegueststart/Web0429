@@ -2,6 +2,7 @@ package com.woniuxueyuan.service;
 
 import java.util.List;
 
+import com.woniuxueyuan.domain.Page;
 import com.woniuxueyuan.domain.Staff;
 
 public interface StaffServive {
@@ -15,4 +16,5 @@ public interface StaffServive {
 
 	List<Staff> find();
 
+	Page<Staff> getPage(Integer pg, Integer size);
 }

@@ -11,9 +11,10 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import com.woniuxueyuan.dao.IStaffDao;
 import com.woniuxueyuan.domain.Staff;
 import com.woniuxueyuan.utils.JdbcUtils;
+import com.woniuxueyuan.utils.MyBeanIntegerHander;
 
 public class StaffImpl implements IStaffDao {
-  
+
 	@Override
 	public void save(Staff s) {
 		try {
@@ -21,7 +22,7 @@ public class StaffImpl implements IStaffDao {
 			QueryRunner qu = new QueryRunner();
 			String sql = "insert into  staff values(null,?,?,?,?)";
 			qu.execute(conn, sql, s.getSname(), s.getSalary(), s.getHiredate(), s.getDid());
-           
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 
@@ -57,8 +58,6 @@ public class StaffImpl implements IStaffDao {
 		}
 	}
 
-	
-
 	@Override
 	public Staff find(Integer sid) {
 		try {
@@ -86,6 +85,36 @@ public class StaffImpl implements IStaffDao {
 			throw new RuntimeException(e);
 
 		}
+	}
+
+	@Override
+	public Integer getRowCount() {
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			QueryRunner qu = new QueryRunner();
+			String sql = "select count(*) from staff";
+			Integer i = qu.query(conn, sql, new MyBeanIntegerHander());
+			return i;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+
+		}
+
+	}
+
+	@Override
+	public List<Staff> find(Integer startLine, Integer size) {
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			QueryRunner qu = new QueryRunner();
+			String sql = "select * from staff  limit  ?,?";
+			List<Staff> list = qu.query(conn, sql, new BeanListHandler<>(Staff.class));
+			return list;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+
+		}
+
 	}
 
 }

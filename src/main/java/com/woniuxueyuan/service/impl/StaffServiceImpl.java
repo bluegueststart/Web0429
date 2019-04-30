@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.woniuxueyuan.dao.IStaffDao;
 import com.woniuxueyuan.dao.impl.StaffImpl;
+import com.woniuxueyuan.domain.Page;
 import com.woniuxueyuan.domain.Staff;
 import com.woniuxueyuan.service.StaffServive;
 
@@ -33,6 +34,15 @@ public class StaffServiceImpl implements StaffServive {
 	@Override
 	public List<Staff> find() {
 		return staff.find();
+	}
+
+	@Override
+	public Page<Staff> getPage(Integer pg, Integer size) {
+		Page<Staff> p = new Page<Staff>(pg, staff.getRowCount(), size);
+		List<Staff> list = staff.find(p.getStartLine(), p.getSize());
+		p.setList(list);
+
+		return p;
 	}
 
 }

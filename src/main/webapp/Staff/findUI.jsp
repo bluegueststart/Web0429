@@ -31,7 +31,7 @@
 			<td>员工操作</td>
 		</tr>
 
-		<c:forEach items="${list}" var="s">
+		<c:forEach items="${page.list}" var="s">
 			<tr>
 
 				<td>${s.sid}</td>
