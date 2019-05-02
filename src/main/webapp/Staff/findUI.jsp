@@ -63,7 +63,7 @@
 			
 			  <a  href="Staff_find?p=${page.prev }">上一页</a> 
 			 <c:forEach  begin="${page.startPage}" end="${page.endPage}"  var="x">
-			 <c:if   test="${x==page.p}">
+			 <c:if   test="${x==page.pg}">
              <button  style="color:red;">${x}</button>
             </c:if>
            <c:if   test="${x!=page.pg}">

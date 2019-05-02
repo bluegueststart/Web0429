@@ -3,6 +3,7 @@ package com.woniuxueyuan.service;
 import java.util.List;
 
 import com.woniuxueyuan.domain.Dept;
+import com.woniuxueyuan.domain.Page;
 
 public interface DeptService {
 	void save(Dept d);
@@ -14,4 +15,5 @@ public interface DeptService {
 	Dept find(Integer id);
 
 	List<Dept> find();
+	Page<Dept> getPage(Integer pg, Integer size);
 }

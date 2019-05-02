@@ -14,5 +14,9 @@ public interface IDeptDao {
 	Dept find(Integer id);
 
 	List<Dept> find();
+	//获取行数
+		Integer  getRowCount();
+		//获取分页数据
+		List<Dept>  find(Integer startLine , Integer size );
 
 }

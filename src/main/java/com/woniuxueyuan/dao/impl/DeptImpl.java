@@ -11,6 +11,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import com.woniuxueyuan.dao.IDeptDao;
 import com.woniuxueyuan.domain.Dept;
 import com.woniuxueyuan.utils.JdbcUtils;
+import com.woniuxueyuan.utils.MyBeanIntegerHander;
 
 public class DeptImpl implements IDeptDao {
 
@@ -84,6 +85,36 @@ public class DeptImpl implements IDeptDao {
 			throw new RuntimeException(e);
 
 		}
+	}
+	
+	@Override
+	public Integer getRowCount() {
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			QueryRunner qu = new QueryRunner();
+			String sql = "select count(*) from dept";
+			Integer i = qu.query(conn, sql, new MyBeanIntegerHander());
+			return i;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+
+		}
+
+	}
+
+	@Override
+	public List<Dept> find(Integer startLine, Integer size) {
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			QueryRunner qu = new QueryRunner();
+			String sql = "select * from dept  limit  ?,?";
+			List<Dept> list = qu.query(conn, sql, new BeanListHandler<>(Dept.class),startLine,size);
+			return list;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+
+		}
+
 	}
 
 }
