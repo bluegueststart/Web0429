@@ -108,7 +108,7 @@ public class StaffImpl implements IStaffDao {
 			Connection conn = JdbcUtils.getConnection();
 			QueryRunner qu = new QueryRunner();
 			String sql = "select * from staff  limit  ?,?";
-			List<Staff> list = qu.query(conn, sql, new BeanListHandler<>(Staff.class));
+			List<Staff> list = qu.query(conn, sql, new BeanListHandler<>(Staff.class),startLine,size);
 			return list;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

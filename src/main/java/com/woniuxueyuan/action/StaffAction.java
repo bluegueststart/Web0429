@@ -1,14 +1,11 @@
 package com.woniuxueyuan.action;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.woniuxueyuan.domain.Dept;
 import com.woniuxueyuan.domain.Page;
 import com.woniuxueyuan.domain.Staff;
 import com.woniuxueyuan.service.DeptService;
@@ -17,22 +14,22 @@ import com.woniuxueyuan.service.impl.DeptServiceImpl;
 import com.woniuxueyuan.service.impl.StaffServiceImpl;
 
 public class StaffAction extends ActionSupport implements ModelDriven<Staff> {
-	/**
-	 *   
+	/**  
+	 *       
 	 */
 	private static final long serialVersionUID = 1L;
 	private Staff staff = new Staff();
 	private StaffServive service = new StaffServiceImpl();
 	private DeptService deptservice = new DeptServiceImpl();
-	private Integer p;
+	private int p;
 
-	public Integer getP() {
+	public int getP() {
 		return p;
-	}
+	}  
 
-	public void setP(Integer p) {
+	public void setP(int p) {
 		this.p = p;
-	}
+	}  
 
 	public String saveUI() {
 		ServletActionContext.getRequest().setAttribute("deptlist", deptservice.find());
@@ -59,7 +56,8 @@ public class StaffAction extends ActionSupport implements ModelDriven<Staff> {
 
 	public String find() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		Page<Staff> list = service.getPage(1, 5);
+
+		Page<Staff> list = service.getPage(p, 10);
 		request.setAttribute("page", list);
 		return "findUI";
 	}

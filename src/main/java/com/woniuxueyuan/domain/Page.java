@@ -22,6 +22,7 @@ public Page(int pg, int rowCount, int size) {
 	if(pg>maxPage) {
 		pg=maxPage;
 	}
+	if(pg < 1) pg = 1;
 	prev=pg-1;
 	next=pg+1;
 	startLine=(pg-1)*size;
@@ -104,6 +105,12 @@ public List<T> getList() {
 }
 public void setList(List<T> list) {
 	this.list = list;
+}
+@Override
+public String toString() {
+	return "Page [pg=" + pg + ", rowCount=" + rowCount + ", maxPage=" + maxPage + ", prev=" + prev + ", next=" + next
+			+ ", startLine=" + startLine + ", size=" + size + ", startPage=" + startPage + ", endPage=" + endPage
+			+ ", list=" + list + "]";
 }
   
   

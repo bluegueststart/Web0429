@@ -11,8 +11,8 @@ public class DeptServiceImpl implements DeptService {
       IDeptDao  dept= new  DeptImpl();
 	@Override
 	public void save(Dept d) {
-		dept.save(d);
-	}
+		dept.save(d);   
+	}  
 
 	@Override
 	public void update(Dept d) {
