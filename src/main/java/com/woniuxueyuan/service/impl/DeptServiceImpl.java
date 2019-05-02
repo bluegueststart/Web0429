@@ -6,10 +6,11 @@ import com.woniuxueyuan.dao.IDeptDao;
 import com.woniuxueyuan.dao.impl.DeptImpl;
 import com.woniuxueyuan.domain.Dept;
 import com.woniuxueyuan.domain.Page;
+import com.woniuxueyuan.factory.totalFactory;
 import com.woniuxueyuan.service.DeptService;
 
 public class DeptServiceImpl implements DeptService {
-      IDeptDao  dept= new  DeptImpl();
+      IDeptDao  dept= totalFactory.getFactory().getDeptDap();
 	@Override
 	public void save(Dept d) {
 		dept.save(d);   

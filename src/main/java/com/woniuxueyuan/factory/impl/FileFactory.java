@@ -2,20 +2,21 @@ package com.woniuxueyuan.factory.impl;
 
 import com.woniuxueyuan.dao.IDeptDao;
 import com.woniuxueyuan.dao.IStaffDao;
+import com.woniuxueyuan.dao.impl.DeptImpl2;
+import com.woniuxueyuan.dao.impl.StaffImpl2;
 import com.woniuxueyuan.factory.Daofactory;
 
-public class FileFactory  implements  Daofactory{
+public class FileFactory implements Daofactory {
 
 	@Override
 	public IStaffDao getStaffFDao() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return new StaffImpl2();
 	}
 
 	@Override
 	public IDeptDao getDeptDap() {
-		// TODO Auto-generated method stub
-		return null;
+		return new DeptImpl2();
 	}
 
 }

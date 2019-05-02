@@ -6,10 +6,11 @@ import com.woniuxueyuan.dao.IStaffDao;
 import com.woniuxueyuan.dao.impl.StaffImpl;
 import com.woniuxueyuan.domain.Page;
 import com.woniuxueyuan.domain.Staff;
+import com.woniuxueyuan.factory.totalFactory;
 import com.woniuxueyuan.service.StaffServive;
 
 public class StaffServiceImpl implements StaffServive {
-	private IStaffDao staff = new StaffImpl();
+	private IStaffDao staff = totalFactory.getFactory().getStaffFDao();
 
 	@Override
 	public void save(Staff s) {  
