@@ -15,7 +15,7 @@ public class MysqlFactory implements Daofactory {
 	}
 
 	@Override
-	public IDeptDao getDeptDap() {
+	public IDeptDao getDeptDao() {
 		return new DeptImpl();
 	}
 

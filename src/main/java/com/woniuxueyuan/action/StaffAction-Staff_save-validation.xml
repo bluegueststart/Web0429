@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+<field name="sname">
+<field-validator type="requiredstring">
+<message>员工必填</message>
+</field-validator>
+<!--  长度控制-->
+<field-validator type="stringlength">
+<param name="maxLength">3</param>
+<param name="minLength">6</param>
+<message>必须在${minLenth}到${maxLenth}列之间</message>
+</field-validator>
+<!-- 正则表达式 -->
+<field-validator type="regex">
+<param name="regexExpression">^[\u4e00-\u9fa5]{2,6}$</param>
+<message>员工名字必须为中文</message>
+</field-validator>
+</field>
+
+
+<field name="hiredate">
+<field-validator type="requiredString">
+<message>入职日期必填</message>
+</field-validator>
+
+</field>
+</validators>

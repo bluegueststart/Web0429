@@ -1,5 +1,6 @@
 package com.woniuxueyuan.dao.impl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -15,6 +16,8 @@ import com.woniuxueyuan.utils.MyBeanIntegerHander;
 
 public class DeptImpl implements IDeptDao {
 
+	
+	
 	@Override
 	public void save(Dept d) {
 		try {

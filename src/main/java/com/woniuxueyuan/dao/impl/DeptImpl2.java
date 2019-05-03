@@ -17,7 +17,7 @@ public class DeptImpl2 implements IDeptDao {
 	@Override
 	public void save(Dept d) {
 		try {
-			Writer wr = new FileWriter("E://a.txt");
+			Writer wr = new FileWriter("E://a.txt",true);
 			PrintWriter pw = new PrintWriter(wr); // 打印流
 			pw.write(d.getDid() + "&&" + d.getDname()); // 打印的类型
 			pw.close(); // 关闭下层流就行
@@ -26,24 +26,6 @@ public class DeptImpl2 implements IDeptDao {
 		}
 
 	}
-
-	@Override
-	public void update(Dept d) {
-
-	}
-
-	@Override
-	public void delete(Integer did) {
-
-	}
-
-	@Override
-	public Dept find(Integer did) {
-		
-		return null;
-
-	}
-
 	@Override
 	public List<Dept> find() {
 		try {
@@ -64,6 +46,25 @@ public class DeptImpl2 implements IDeptDao {
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public void update(Dept d) {
+
+	}
+
+	@Override
+	public void delete(Integer did) {
+
+	}
+
+	@Override
+	public Dept find(Integer did) {
+		
+		return null;
+
+	}
+
+	
 
 	@Override
 	public Integer getRowCount() {

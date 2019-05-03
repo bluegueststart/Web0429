@@ -31,9 +31,9 @@ public class StaffAction extends ActionSupport implements ModelDriven<Staff> {
 	public void setP(int p) {
 		this.p = p;
 	}
-
+	
 	public String saveUI() {
-		ServletActionContext.getRequest().setAttribute("deptlist", deptservice.find());
+		ServletActionContext.getRequest().getSession().setAttribute("deptlist", deptservice.find());
 
 		return "saveUI";
 	}

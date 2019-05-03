@@ -28,6 +28,31 @@ public class DeptAction extends ActionSupport implements ModelDriven<Dept> {
 	public void setP(int p) {
 		this.p = p;
 	}
+	//只会检查进入save方法的参数
+		public void validateSave() { //这
+			//一旦发现错误,就调用方法吧错误记录下来
+			if(dept.getDname()==null||dept.getDname().trim().length()<1) {
+	           addFieldError("error", "名字输入错误");
+	         //这个记录在哪里呢? 在一个叫error的map集合中
+	   		//在validate方法结束之后,struts框架中 检测这个这个的error的map集合size() 是否为0来判断是否有错
+	   		//你添加错误信息,就是往map中数据,
+	   		//如果有,就会跳到 叫"input" 的逻辑视图上
+			}else {
+				boolean matches = dept.getDname().matches("[a-z]{2,4}");
+				//正则式表示中文  "[\\u4e00-\\u9f5]{2,4}" ,表示2到4列中文
+			     if(!matches) {
+			    	 addFieldError("error", "必须是2到4列英文");
+			     }
+			}
+			
+			
+			
+		}
+
+	@Override
+	public void validate() { 
+		super.validate();
+	}
 
 
 	public String save() {   

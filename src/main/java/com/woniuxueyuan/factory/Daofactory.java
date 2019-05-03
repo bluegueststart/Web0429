@@ -7,5 +7,5 @@ import com.woniuxueyuan.dao.IStaffDao;
 public interface Daofactory {
 	IStaffDao getStaffFDao();//接口作为返回值
 
-	IDeptDao getDeptDap();
+	IDeptDao getDeptDao();
 }
