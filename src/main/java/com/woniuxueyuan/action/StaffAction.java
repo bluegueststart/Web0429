@@ -73,6 +73,7 @@ public class StaffAction extends ActionSupport implements ModelDriven<Staff> {
 		//这样的话,以后查询请求中页有p, 会话中也有p
 		//但是,修改和删除只有会中有p
 		Page<Staff> list = service.getPage(k, 10);
+		list.setActionName("Staff");
 		request.setAttribute("page", list);
 		return "findUI";
 	}

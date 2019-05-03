@@ -13,6 +13,13 @@ public class Page<T> {
   private int  startPage;
   private int endPage;
   private List<T>  list;
+  private  String  actionName;
+public String getActionName() {
+	return actionName;
+}
+public void setActionName(String actionName) {
+	this.actionName = actionName;
+}
 public Page(int pg, int rowCount, int size) {
 	this.pg = pg;
 	this.rowCount = rowCount;

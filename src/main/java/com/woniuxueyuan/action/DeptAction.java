@@ -49,10 +49,7 @@ public class DeptAction extends ActionSupport implements ModelDriven<Dept> {
 			
 		}
 
-	@Override
-	public void validate() { 
-		super.validate();
-	}
+
 
 
 	public String save() {   
@@ -93,6 +90,7 @@ public class DeptAction extends ActionSupport implements ModelDriven<Dept> {
 		//这样的话,以后查询请求中页有p, 会话中也有p
 		//但是,修改和删除只有会中有p
 		Page<Dept> list = service.getPage(k, 10);
+		list.setActionName("Dept");
 		request.setAttribute("page", list);
 		return "findUI";
 	}    

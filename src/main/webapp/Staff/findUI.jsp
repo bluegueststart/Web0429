@@ -58,28 +58,28 @@
 
 		</c:forEach>
 		<tr>
-			<td colspan="6"><a href="Staff_find?p=1">首页</a> 
+			<td colspan="6"><a href="${page.actionName}_find?p=1">首页</a> 
 			
 			
-			  <a  href="Staff_find?p=${page.prev }">上一页</a> 
+			  <a  href="${page.actionName}_find?p=${page.prev }">上一页</a> 
 			 <c:forEach  begin="${page.startPage}" end="${page.endPage}"  var="x">
 			 <c:if   test="${x==page.pg}">
              <button  style="color:red;">${x}</button>
             </c:if>
            <c:if   test="${x!=page.pg}">
-			  <a  href="Staff_find?p=${x}"><button>${x}</button></a>
+			  <a  href="${page.actionName}_find?p=${x}"><button>${x}</button></a>
 			  </c:if> 
 			
 			  
 			 </c:forEach>
 			  
-			<a href="Staff_find?p=${page.next }">下一页</a> 
+			<a href="${page.actionName}_find?p=${page.next }">下一页</a> 
 				
 				
-			<a  href="Staff_find?p=${page.maxPage}"> 末页</a>
+			<a  href="${page.actionName}_find?p=${page.maxPage}"> 末页</a>
 
 
-			<form action="Staff_find" method="post" style="display: inline">
+			<form action="${page.actionName}_find" method="post" style="display: inline">
 					跳到<input name="p" size="2">页
 					<button type="submit">GO</button>
 			</form>
